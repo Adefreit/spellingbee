@@ -5,6 +5,19 @@ import os
 import random
 
 
+def setup():
+
+    # Get the current directory
+    current_directory = os.getcwd()
+
+    # Full path to the new folder
+    sounds_folder = os.path.join(current_directory, "sounds")
+    reports_folder = os.path.join(current_directory, "reports")
+
+    os.makedirs(sounds_folder, exist_ok=True)
+    os.makedirs(reports_folder, exist_ok=True)
+
+
 def load_dictionary():
     with open('words.txt') as f:
         lines = f.readlines()
@@ -62,6 +75,8 @@ def saveResults(selected, missed_words):
 # ------------------------------------------
 # MAIN PROGRAM
 # ------------------------------------------
+setup()
+
 correct = 0
 incorrect = 0
 
